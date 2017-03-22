@@ -91,7 +91,7 @@ describe("About Applying What We Have Learnt", function() {
 
     var sum = 233168;    /* try chaining range()<-- (not in javascript) and reduce() */
 
-    expect(233168).toBe(sum);
+    expect(sum).toBe(array.reduce(add));
   });
 
   /*********************************************************************************/
@@ -104,7 +104,7 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
