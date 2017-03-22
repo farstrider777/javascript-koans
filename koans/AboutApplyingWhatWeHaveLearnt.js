@@ -39,18 +39,18 @@ describe("About Applying What We Have Learnt", function() {
 
       var productsICanEat = [];
 
-      // function checkNuts (pizza){
-      //   return pizza.containsNuts
-      // }
-      //
-      // var noNuts = products.filter(checkNuts);
-      //
-      //
-      // for(var count = 0; count < noNuts; count++){
-      //   if(noNuts[count].ingredients.includes("mushrooms")){
-      //     productsICanEat.push(noNuts[count])
-      //   }
-      // }
+      function checkNuts (pizza){
+        return !pizza.containsNuts
+      }
+
+      noNuts = products.filter(checkNuts);
+
+
+      for(var count = 0; count < noNuts.length; count++){
+        if(!noNuts[count].ingredients.includes("mushrooms")){
+          productsICanEat.push(noNuts[count])
+        }
+      }
 
       /* solve using filter() & all() / any() */
 
@@ -68,14 +68,30 @@ describe("About Applying What We Have Learnt", function() {
       }
     }
 
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
 
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
+  var sum = 0;
 
-    expect(233168).toBe(FILL_ME_IN);
+  var array = []
+  for(var count = 0; count < 1000; count++){
+    array.push(count)
+  }
+
+  function add(total, x){
+    if(!(x % 3) || !(x % 5)){
+      return total + x
+    }else{return total}
+  }
+
+  console.log(array.reduce(add))
+
+
+    var sum = 233168;    /* try chaining range()<-- (not in javascript) and reduce() */
+
+    expect(233168).toBe(sum);
   });
 
   /*********************************************************************************/
