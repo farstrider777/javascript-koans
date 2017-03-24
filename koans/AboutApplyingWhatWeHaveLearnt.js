@@ -75,10 +75,8 @@ describe("About Applying What We Have Learnt", function() {
 
   var sum = 0;
 
-  var array = []
-  for(var count = 0; count < 1000; count++){
-    array.push(count)
-  }
+  // var array = _.range(1000)
+
 
   function add(total, x){
     if(!(x % 3) || !(x % 5)){
@@ -86,12 +84,15 @@ describe("About Applying What We Have Learnt", function() {
     }else{return total}
   }
 
-  console.log(array.reduce(add))
+  //console.log(_.range(1000).reduce(add))
+
+  // not _.chain(whatever)...
+  // use _(whatever)...
 
 
     var sum = 233168;    /* try chaining range()<-- (not in javascript) and reduce() */
 
-    expect(sum).toBe(array.reduce(add));
+    expect(sum).toBe(_.range(1000).reduce(add));
   });
 
   /*********************************************************************************/
@@ -111,8 +112,19 @@ describe("About Applying What We Have Learnt", function() {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
+    ingredientCount.mushrooms = 2;
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+
+    function hasMush(ingredient){
+      return ingredient === 'mushrooms'
+    }
+
+    var test = _.flatten(products.map(function(x) {
+      return x.ingredients
+    }))
+
+
+    expect(ingredientCount['mushrooms']).toBe(test.filter(hasMush).length);
   });
 
   /*********************************************************************************/
